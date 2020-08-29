@@ -13,6 +13,8 @@ using namespace std;
 
 class Solution {
  public:
+
+ // can decrease O(N) -> O(logN) using Fenwick tree
   int getMaxEleIndex(vector<int>& A, int size) {
     int mx = INT_MIN;
     int index = -1;
