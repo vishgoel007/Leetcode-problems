@@ -2,9 +2,11 @@
 
 #include <iostream>
 #include <map>
+#include <queue>
 #include <stack>
 #include <string>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 using namespace std;
@@ -89,7 +91,7 @@ class Solution3 {
 };
 
 // Bottom up
-class Solution {
+class Solution4 {
  public:
   int coinChange(vector<int>& coins, int amount) {
     int len = coins.size();
@@ -106,5 +108,36 @@ class Solution {
       }
     }
     return dp[amount] == INT_MAX ? -1 : dp[amount];
+  }
+};
+
+// using bfs
+class Solution {
+ public:
+  int coinChange(vector<int>& coins, int amount) {
+    int len = coins.size();
+    queue<int> q;
+    int level = 0;
+    unordered_set<int> visited;
+    q.push(amount);
+    while (!q.empty()) {
+      int size = q.size();
+      level++;
+      for (int s = 0; s < size; s++) {
+        int curr = q.front();
+        q.pop();
+
+        if (curr == 0) return level - 1;
+        if (visited.count(curr)) continue;
+
+        visited.insert(curr);
+
+        for (int c = 0; c < len; c++) {
+          if (curr >= c)
+            q.push(curr - coins[c]);
+        }
+      }
+    }
+    return -1;
   }
 };
