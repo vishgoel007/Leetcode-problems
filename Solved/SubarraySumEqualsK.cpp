@@ -48,7 +48,7 @@ class Solution {
         count += mp[currSum - k];
       mp[currSum]++;
     }
-
+    
     return count;
   }
 };
