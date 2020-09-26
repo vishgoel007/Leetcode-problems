@@ -33,7 +33,7 @@ class Solution {
         maxLen = p.first;
       }
     }
-    return s.substr(start, maxLen - start + 1);
+    return s.substr(start, maxLen);
   }
 };
 
