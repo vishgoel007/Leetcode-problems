@@ -55,4 +55,24 @@ class Solution {
   }
 };
 
-//https://leetcode.com/problems/rotate-array/solution/
+// inspired by this
+// http://www.cplusplus.com/reference/algorithm/rotate/
+class Solution {
+ public:
+  void rotate(vector<int>& nums, int k) {
+    int len = nums.size();
+    k = k % len;
+    if (k == 0) return;
+
+    int first = 0, last = len, middle = len - k;
+    int next = middle;
+
+    while (first != next) {
+      swap(nums[first++], nums[next++]);
+      if (next == last)
+        next = middle;
+      else if (first == middle)
+        middle = next;
+    }
+  }
+};
