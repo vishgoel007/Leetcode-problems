@@ -62,3 +62,6 @@ class Solution {
     return -1;
   }
 };
+
+// simple one pass approach
+// https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/154836/The-INF-and-INF-method-but-with-a-better-explanation-for-dummies-like-me
